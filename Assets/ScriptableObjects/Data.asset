@@ -15,4 +15,5 @@ MonoBehaviour:
   screenSizeY: 15
   screenSizeX: 8
   numberOfBullet: 0
+  normalBulletSpeed: 0.1
   bulletList: []
