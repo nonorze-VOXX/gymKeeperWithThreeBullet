@@ -5,17 +5,30 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
     public GameData data;
-    public int test = 10;
+    public float timer;
+    
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-    void Update(){
-    }
-    public void moveFront(){
-
+        
     }
 
     // Update is called once per frame
+    void Update()
+    {
+        timer += Time.deltaTime;
+        if(timer >= data.normalBulletExistTime){
+            delete();
+        }
+        transform.position = new Vector3(
+            transform.position.x,
+            transform.position.y - data.normalBulletSpeed,
+            0
+        );
+        
+    }
+    public void delete(){
+        data.bulletList.Remove(this.gameObject);
+        Destroy(this.gameObject);
+    }
 }

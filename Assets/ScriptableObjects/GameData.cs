@@ -9,5 +9,11 @@ public class GameData : ScriptableObject
     public float screenSizeX;
     public int numberOfBullet;
     public float normalBulletSpeed;
-    public List<bullet> bulletList = new List<bullet>();
+    public float normalBulletShootRate;
+    public float normalBulletNextFireTime;
+    public float normalBulletExistTime;
+    public float muscleRate;
+    public float muscleLevel;
+    public float muscleTrainSpeed;
+    public List<GameObject> bulletList = new List<GameObject>();
 }

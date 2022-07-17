@@ -25,6 +25,10 @@ public class PlayerManeger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        data.muscleLevel = 0f;
+        data.muscleRate = 0f;
+        data.muscleTrainSpeed = 50f;
+        data.normalBulletShootRate = 1f;
         initPlayer();
         xMax = data.screenSizeX;//Screen.width;
         xMin = data.screenSizeX*-1;
@@ -36,31 +40,43 @@ public class PlayerManeger : MonoBehaviour
     void Update()
     {
         
-        if((Input.GetKey("d")||Input.GetKey("right"))&&player.transform.position.x<xMax){
-            player.transform.position = new Vector3(
-                player.transform.position.x+moveSpeed,
-                player.transform.position.y,
-                0);
-        }
+        if(Input.GetKey("space")){
+            data.muscleRate += Time.deltaTime*data.muscleTrainSpeed;
+            if(data.muscleRate>=100f){
+                data.muscleLevel+=1;
+                if(data.normalBulletShootRate>=0.32){
+                    data.normalBulletShootRate*=0.9f;
+                }
+                data.muscleRate = 0f;
+            }
+        }else{
+            if((Input.GetKey("d")||Input.GetKey("right"))&&player.transform.position.x<xMax){
+                player.transform.position = new Vector3(
+                    player.transform.position.x+moveSpeed,
+                    player.transform.position.y,
+                    0);
+            }
 
-        if((Input.GetKey("w")||Input.GetKey("up"))&&player.transform.position.y<yMax){
-            player.transform.position = new Vector3(
-                player.transform.position.x,
-                player.transform.position.y+moveSpeed,
-                0);
-        }
-        if((Input.GetKey("a")||Input.GetKey("left"))&&player.transform.position.x>xMin){
-            player.transform.position = new Vector3(
-                player.transform.position.x-moveSpeed,
-                player.transform.position.y,
-                0);
-        }
+            if((Input.GetKey("w")||Input.GetKey("up"))&&player.transform.position.y<yMax){
+                player.transform.position = new Vector3(
+                    player.transform.position.x,
+                    player.transform.position.y+moveSpeed,
+                    0);
+            }
+            if((Input.GetKey("a")||Input.GetKey("left"))&&player.transform.position.x>xMin){
+                player.transform.position = new Vector3(
+                    player.transform.position.x-moveSpeed,
+                    player.transform.position.y,
+                    0);
+            }
 
-        if((Input.GetKey("s")||Input.GetKey("down"))&&player.transform.position.y>yMin){
-            player.transform.position = new Vector3(
-                player.transform.position.x,
-                player.transform.position.y-moveSpeed,
-                0);
+            if((Input.GetKey("s")||Input.GetKey("down"))&&player.transform.position.y>yMin){
+                player.transform.position = new Vector3(
+                    player.transform.position.x,
+                    player.transform.position.y-moveSpeed,
+                    0);
+            }
+
         }
     }
 }
