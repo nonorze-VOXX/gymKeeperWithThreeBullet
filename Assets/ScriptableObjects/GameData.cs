@@ -15,5 +15,6 @@ public class GameData : ScriptableObject
     public float muscleRate;
     public float muscleLevel;
     public float muscleTrainSpeed;
+    public int HP;
     public List<GameObject> bulletList = new List<GameObject>();
 }

@@ -17,14 +17,13 @@ MonoBehaviour:
   numberOfBullet: 0
   normalBulletSpeed: 0.1
   normalBulletShootRate: 1
-  normalBulletNextFireTime: 26
+  normalBulletNextFireTime: 9
   normalBulletExistTime: 10
   muscleRate: 0
   muscleLevel: 0
   muscleTrainSpeed: 50
+  HP: 2
   bulletList:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class wall : MonoBehaviour
+public class HitPOint : MonoBehaviour
 {
     public GameData data;
     // Start is called before the first frame update
     void Start()
     {
+        this.gameObject.SetActive(true);
+        data.HP=3;
     }
 
     // Update is called once per frame
@@ -17,8 +18,8 @@ public class wall : MonoBehaviour
         
     }
     private void OnCollisionEnter2D(Collision2D collision){
-        data.bulletList.Remove(collision.gameObject);
+        data.HP -=1;
         Destroy(collision.gameObject);
-        print("col");
+        this.gameObject.SetActive(false);
     }
 }

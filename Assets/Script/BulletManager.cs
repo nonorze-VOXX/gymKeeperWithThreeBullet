@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
-    public GameObject normalBullet;
+    [SerializeField]
+    private GameObject normalBullet;
     public GameData data;
     public Quaternion q;
     public GameObject BulletContainer;
