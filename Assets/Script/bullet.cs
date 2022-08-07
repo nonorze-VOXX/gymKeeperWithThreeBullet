@@ -17,12 +17,12 @@ public class bullet : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer >= data.normalBulletExistTime){
+        if(timer >= data.Normal.ExistTime){
             delete();
         }
         transform.position = new Vector3(
             transform.position.x,
-            transform.position.y - data.normalBulletSpeed,
+            transform.position.y - data.Normal.Speed,
             0
         );
         

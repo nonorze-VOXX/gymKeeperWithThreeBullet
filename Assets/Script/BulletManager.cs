@@ -14,15 +14,15 @@ public class BulletManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        data.normalBulletNextFireTime=0f;
+        data.Normal.NextFireTime=0f;
         data.bulletList.Clear();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Time.time>data.normalBulletNextFireTime){
-            data.normalBulletNextFireTime += data.normalBulletShootRate;
+        if(Time.time>data.Normal.NextFireTime){
+            data.Normal.NextFireTime += data.Normal.ShootRate;
             CreateNormal(Random.Range(-data.screenSizeX,data.screenSizeX),15,normalBullet);
         }
     }

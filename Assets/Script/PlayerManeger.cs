@@ -28,7 +28,7 @@ public class PlayerManeger : MonoBehaviour
         data.muscleLevel = 0f;
         data.muscleRate = 0f;
         data.muscleTrainSpeed = 50f;
-        data.normalBulletShootRate = 1f;
+        data.Normal.ShootRate = 1f;
         initPlayer();
         xMax = data.screenSizeX;//Screen.width;
         xMin = data.screenSizeX*-1;
@@ -44,8 +44,8 @@ public class PlayerManeger : MonoBehaviour
             data.muscleRate += Time.deltaTime*data.muscleTrainSpeed;
             if(data.muscleRate>=100f){
                 data.muscleLevel+=1;
-                if(data.normalBulletShootRate>=0.32){
-                    data.normalBulletShootRate*=0.9f;
+                if(data.Normal.ShootRate>=0.32){
+                    data.Normal.ShootRate*=0.9f;
                 }
                 data.muscleRate = 0f;
             }

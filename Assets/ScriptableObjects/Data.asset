@@ -14,18 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenSizeY: 15
   screenSizeX: 8
-  numberOfBullet: 0
-  normalBulletSpeed: 0.1
-  normalBulletShootRate: 1
-  normalBulletNextFireTime: 9
-  normalBulletExistTime: 10
+  Normal: {fileID: 11400000, guid: ccfdf0f7ea99d1d89b1e25f40ecf6371, type: 2}
+  HighSpeed: {fileID: 11400000, guid: e4e3de8cfada0eaff8bbf3195a4320cf, type: 2}
   muscleRate: 0
   muscleLevel: 0
   muscleTrainSpeed: 50
-  HP: 2
+  HP: 3
   bulletList:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
