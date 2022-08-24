@@ -16,6 +16,9 @@ public class BulletManager : MonoBehaviour
     {
         data.Normal.NextFireTime=0f;
         data.bulletList.Clear();
+        for(int i=0;i<10;i++){
+            CreateNormal(normalBullet);
+        }
     }
 
     // Update is called once per frame
@@ -23,18 +26,28 @@ public class BulletManager : MonoBehaviour
     {
         if(Time.time>data.Normal.NextFireTime){
             data.Normal.NextFireTime += data.Normal.ShootRate;
-            CreateNormal(Random.Range(-data.screenSizeX,data.screenSizeX),15,normalBullet);
+            if(data.bulletList.Count==0){
+                CreateNormal(normalBullet);
+            }
+            FireNormal(Random.Range(-data.screenSizeX,data.screenSizeX),15);
         }
     }
     
-    public void CreateNormal(float x, float y,GameObject Bullet)
+    public void FireNormal(float x, float y){
+        GameObject newBullet = data.bulletList.Dequeue();
+        newBullet.transform.position = new Vector3(x,y,0);
+        newBullet.SetActive(true);
+
+    }
+    public void CreateNormal(GameObject Bullet)
     { 
         GameObject newBullet = Instantiate(
             Bullet, 
-            BulletContainer.transform.position + new Vector3(x,y,0),
+            BulletContainer.transform.position,
             BulletContainer.transform.rotation,
             BulletContainer.transform);
-        data.bulletList.Add(newBullet);
+        newBullet.SetActive(false);
+        data.bulletList.Enqueue(newBullet);
         //data.bulletList[data.numberOfBullet++] = clone;
     }
 }
