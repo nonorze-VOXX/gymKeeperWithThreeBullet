@@ -12,6 +12,7 @@ public class GameData : ScriptableObject
     public float muscleRate;
     public float muscleLevel;
     public float muscleTrainSpeed;
+    public float KillDistance;
     public int HP;
     public Queue<GameObject> bulletList = new Queue<GameObject>();
 }

@@ -19,11 +19,5 @@ MonoBehaviour:
   muscleRate: 0
   muscleLevel: 0
   muscleTrainSpeed: 50
+  KillDistance: 1
   HP: 3
-  bulletList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}

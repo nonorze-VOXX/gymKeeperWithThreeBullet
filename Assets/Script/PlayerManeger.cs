@@ -18,6 +18,8 @@ public class PlayerManeger : MonoBehaviour
     public GameData data;
 
 
+    public GameObject TheGunner;
+    public GameObject GymKeeper;
 
     public void initPlayer(){
         player.transform.position = new Vector3(startX,StartY,0);
@@ -39,7 +41,17 @@ public class PlayerManeger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Vector2 GymKeeperVector2 = new Vector2 (GymKeeper.transform.position.x,GymKeeper.transform.position.y);
+        Vector2 TheGunnerVector2 = new Vector2 (TheGunner.transform.position.x,TheGunner.transform.position.y);
+        if(Input.GetKey("z") && Vector2.Distance(GymKeeperVector2,TheGunnerVector2) < data.KillDistance){
+            Debug.Log("KILL");
+            Debug.Log(GymKeeperVector2);
+            Debug.Log(TheGunnerVector2);
+            TheGunner.SetActive(false);
+        }
+        if(Input.GetKey("x") && Vector2.Distance(GymKeeperVector2,TheGunnerVector2) < data.KillDistance){
+            TheGunner.SetActive(true);
+        }
         if(Input.GetKey("space")){
             data.muscleRate += Time.deltaTime*data.muscleTrainSpeed;
             if(data.muscleRate>=100f){
